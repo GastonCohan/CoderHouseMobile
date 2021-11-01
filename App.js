@@ -1,12 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import { Input, NativeBaseProvider, IconButton, Icon } from "native-base"
+import { Ionicons } from "@expo/vector-icons"
 
 export default function App() {
+
+  // States
+
+
+  // Methods
+
+
   return (
     <View style={styles.container}>
-      <Text>Hola, Coder!</Text>
-      <StatusBar style="auto" />
+      <NativeBaseProvider>
+        <View style={{ marginTop: '20%', flexDirection: "row", textAlign: "center", justifyContent: "center" }}>
+          <Input
+            placeholder="Ingresa una categoria"
+            style={{ justifyContent: "center", textAlign: "center" }}
+          />
+          <IconButton icon={<Icon as={Ionicons} name="send" />} />
+        </View>
+        <View style={{ marginTop: '15%' }}>
+          <Text> Categorias añadidas</Text>
+        </View>
+      </NativeBaseProvider>
     </View>
   );
 }
