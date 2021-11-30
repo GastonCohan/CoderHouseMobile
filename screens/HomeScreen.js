@@ -33,37 +33,39 @@ export default function HomeScreen() {
 
     return (
         <View style={styles.container}>
-            <NativeBaseProvider>
-                <Button
-                    title="Go to Login"
-                    onPress={() => navigation.navigate('Login')}
-                />
-                <View style={{ marginTop: '20%', flexDirection: "row", textAlign: "center", justifyContent: "center" }}>
-                    <Input
-                        placeholder="Ingresa una categoria"
-                        style={{ justifyContent: "center", textAlign: "center" }}
-                        onChangeText={handleChangeText}
-                        value={textValue}
+            <View>
+                <NativeBaseProvider>
+                    <Button
+                        title="Go to Login"
+                        onPress={() => navigation.navigate('Login')}
                     />
-                    <IconButton icon={<Icon as={Ionicons} name="send" onPress={HandleAddItem} />} />
-                </View>
-                <View style={{ marginTop: '15%' }}>
-                    <Text> Categorias añadidas</Text>
-                    <FlatList
-                        data={itemList}
-                        renderItem={data => {
-                            return (
-                                <View>
-                                    <Text>{data.item.value}</Text>
-                                    {/* <Button title="X" color="#AAAAAA" onPress={() => handleModal(data.item.id)} /> */}
-                                </View>
-                            )
-                        }}
-                        keyExtractor={item => item.id}
-                    />
-                </View>
-            </NativeBaseProvider>
-        </View>
+                    <View style={{ marginTop: '20%', flexDirection: "row", textAlign: "center", justifyContent: "center" }}>
+                        <Input
+                            placeholder="Ingresa una categoria"
+                            style={{ justifyContent: "center", textAlign: "center" }}
+                            onChangeText={handleChangeText}
+                            value={textValue}
+                        />
+                        <IconButton icon={<Icon as={Ionicons} name="send" onPress={HandleAddItem} />} />
+                    </View>
+                    <View style={{ marginTop: '15%' }}>
+                        <Text> Categorias añadidas</Text>
+                        <FlatList
+                            data={itemList}
+                            renderItem={data => {
+                                return (
+                                    <View>
+                                        <Text>{data.item.value}</Text>
+                                        {/* <Button title="X" color="#AAAAAA" onPress={() => handleModal(data.item.id)} /> */}
+                                    </View>
+                                )
+                            }}
+                            keyExtractor={item => item.id}
+                        />
+                    </View>
+                </NativeBaseProvider>
+            </View>
+        </View >
     );
 }
 
